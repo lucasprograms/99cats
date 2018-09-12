@@ -1,0 +1,36 @@
+<% action = cat.persisted? ? "/cats/#{cat.id}" : "/cats" %>
+<% method = cat.persisted? ? "patch" : "post" %>
+
+<form action="<%= action %>" method="post" class="cats-form">
+  <%= render 'partials/csrf_auth' %>
+  <input name="_method" type="hidden" value="<%= method %>">
+  <section>
+    <label for="name">name:</label>
+    <input type="text" name="cat[name]" value="<%= cat.name %>"/>
+  </section>
+  <section>
+    <label for="sex">sex:</li>
+    <label class="radio-label" for="sex-m">M</label>
+    <input type="radio" id="sex-m" name="cat[sex]" value="M" <%= cat.sex == 'M' ? "checked" : "" %>/>
+    <label class="radio-label" for="sex-f">F</label>
+    <input type="radio" id="sex-f" name="cat[sex]" value="F" <%= cat.sex == 'F' ? "checked" : "" %>/>
+  </section>
+  <section>
+    <label for="color">color:</li>
+    <select name="cat[color]">
+      <option value="">-- please select a color --</option>
+      <% Cat::CAT_COLORS.each do |cat_color| %>
+        <option value="<%= cat_color %>" <%= cat.color == cat_color ? "selected" : "" %>><%= cat_color %></option>
+      <% end %>
+    </select>
+  </section>
+  <section>
+    <label for="birth_date">Birthday!</label>
+    <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>"/>
+  </section>
+  <section>
+    <label for="description">Description</label>
+    <textarea name="cat[description]"><%= cat.description %></textarea>
+  </section>
+  <button type="submit">SUBMIT</button>
+</form>

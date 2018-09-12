@@ -1,0 +1,21 @@
+      <header>
+        <h3><%= current_user ? current_user.username : nil %></h3>
+        <% if current_user %>
+          <form action="/session" method="post">
+            <%= render 'partials/csrf_auth' %>
+            <input name="_method" type="hidden" value="delete" />
+            <button type="submit">Sign Out</button>
+          </form>
+        <% else %>
+        <form action="/session" method="post">
+          <%= render 'partials/csrf_auth' %>
+          <label for="new-username">Username: </label>
+          <input id="new-username" name="session[username]" type="text" />
+          <label for="new-password">Password: </label>
+          <input id="new-password" name="session[password]" type="password" />
+          <button type="submit">Sign In!</button>
+        </form>
+
+        <% end %>
+        
+      </header>

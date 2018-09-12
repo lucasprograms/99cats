@@ -1,0 +1,8 @@
+<form action="/users" method="post">
+  <%= render 'partials/csrf_auth' %>
+  <label for="new-username">Username: </label>
+  <input id="new-username" name="user[username]" type="text" />
+  <label for="new-password">Password: </label>
+  <input id="new-password" name="user[password]" type="password" />
+  <button type="submit">Sign Up!</button>
+</form>

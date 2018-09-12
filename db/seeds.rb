@@ -1,0 +1,11 @@
+c1 = Cat.create!(name: 'Bucky', color: 'white', sex: 'F', description: 'lonely cat seek SWM', birth_date: Date.new(2008, 5, 11))
+c2 = Cat.create!(name: 'Frosty', color: 'tabby', sex: 'F', description: 'fiery, feisty kitty-kat seeks loving partner. Non-monagamous', birth_date: Date.new(2008, 8, 11))
+c3 = Cat.create!(name: 'guimauve', color: 'white', sex:'M', description: 'I am a marshmallow', birth_date: Date.new(2014, 7, 12))
+
+cr1 = CatRentalRequest.create(cat_id: c1.id, start_date: Date.new(2018, 9, 15), end_date: Date.new(2018, 9, 21), status: 'PENDING')
+cr2 = CatRentalRequest.create(cat_id: c1.id, start_date: Date.new(2018, 9, 16), end_date: Date.new(2018, 9, 18), status: 'PENDING')
+cr3 = CatRentalRequest.create(cat_id: c1.id, start_date: Date.new(2018, 9, 22), end_date: Date.new(2018, 9, 23), status: 'PENDING')
+cr4 = CatRentalRequest.create(cat_id: c2.id, start_date: Date.new(2018, 9, 15), end_date: Date.new(2018, 9, 21), status: 'PENDING')
+cr5 = CatRentalRequest.create(cat_id: c3.id, start_date: Date.new(2018, 9, 15), end_date: Date.new(2018, 9, 21), status: 'PENDING')
+cr6 = CatRentalRequest.create(cat_id: c3.id, start_date: Date.new(2018, 9, 15), end_date: Date.new(2018, 9, 20), status: 'PENDING')
+cr7 = CatRentalRequest.create(cat_id: c3.id, start_date: Date.new(2018, 9, 21), end_date: Date.new(2018, 9, 28), status: 'PENDING')

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat_id: 1
+  start_date: 2018-09-11
+  end_date: 2018-09-11
+  status: MyString
+
+two:
+  cat_id: 1
+  start_date: 2018-09-11
+  end_date: 2018-09-11
+  status: MyString

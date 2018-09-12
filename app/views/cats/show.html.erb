@@ -1,0 +1,28 @@
+<ul>
+  <li>name: <%= @cat.name %></li>
+  <li>sex: <%= @cat.sex %></li>
+  <li>color: <%= @cat.color %></li>
+  <li>age: <%= @cat.age %></li>
+  <li>description: <%= @cat.description %></li>
+  <li>----------------------------------------</li>
+  <li>
+    <ul>
+      <li>Rental Requests:</li>
+      <li>----------------------------------------</li>
+      <% @rental_requests_for_cat.each do |rental_request| %>
+        <li>Start Date: <%= rental_request.start_date %></li>
+        <li>End Date: <%= rental_request.end_date %></li>
+        <li>Status: <%= rental_request.status %></li>
+        <li style="display:<%= rental_request.pending? ? 'block' : 'none'%>">
+          <form action="/cat_rental_requests/<%=rental_request.id%>/approve" method="post">
+            <button type="submit">APPROVE</button>
+          </form>
+          <form action="/cat_rental_requests/<%=rental_request.id%>/deny" method="post">
+            <button type="submit">DENY</button>
+          </form>
+        </li>
+        <li>----------------------------------------</li>
+      <% end %>
+    </li>
+  </li>
+</ul>
